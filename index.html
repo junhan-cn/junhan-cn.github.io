@@ -187,7 +187,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2024-08-08 09:52:41 / 修改时间：10:44:39" itemprop="dateCreated datePublished" datetime="2024-08-08T09:52:41+08:00">2024-08-08</time>
+              <time title="创建时间：2024-08-08 09:52:41 / 修改时间：10:55:27" itemprop="dateCreated datePublished" datetime="2024-08-08T09:52:41+08:00">2024-08-08</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -216,12 +216,14 @@
 <li>os版本： openEuler-22.03-SP3</li>
 </ul>
 <h1 id="dracut介绍"><a href="#dracut介绍" class="headerlink" title="dracut介绍"></a>dracut介绍</h1><p>dracut 是基于事件的驱动的initramfs的工具。dracut通过从一个已经安装的系统中复制相应的文件从而创建一个initramfs。从实现上来说dracut 主要是通过一堆脚本定义各个事件。最后通过dracut去调用相应的脚本，复制各个组件，组成initramfs。脚本一般定义在&#x2F;usr&#x2F;lib&#x2F;dracut&#x2F;modules.d&#x2F;目录下。日常使用的情况下，目前来看不需要动系统自带的脚本。</p>
-<h1 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h1><h2 id="服务器中的使用"><a href="#服务器中的使用" class="headerlink" title="服务器中的使用"></a>服务器中的使用</h2><ul>
-<li>添加指定驱动到initramfs中 dracut提供了 –add-drivers –force-drivers –omit-drivers 相关的命令去指定是否将相关驱动做到initramfs中。也可以定义相关配置文件，去持久化<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">/etc/</span>dracut.conf</span><br><span class="line"><span class="regexp">/etc/</span>dracut.conf.d/ </span><br></pre></td></tr></table></figure></li>
-<li>initramfs被损坏后，通过dracut恢复<br>initramfs被损坏后，系统无法进入。此时可以通过挂载iso 进入系统去重做initramfs<br>使用方法<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 挂载相应的分区</span></span><br><span class="line">mount <span class="string">/dev/vda2</span> <span class="string">/mnt</span>    <span class="string">//</span>我的环境 vda2是根分区</span><br><span class="line">mount <span class="string">/dev/vda1</span> <span class="string">/mnt/boot</span>  <span class="string">//vda1</span>是boot分区</span><br><span class="line">mount <span class="params">--rbind</span> <span class="string">/proc</span> <span class="string">/mnt/proc</span></span><br><span class="line">mount <span class="params">--rbind</span> <span class="string">/dev</span> <span class="string">/mnt/dev</span></span><br><span class="line">mount <span class="params">--rbind</span> <span class="string">/sys</span> <span class="string">/mnt/sys</span></span><br><span class="line"></span><br><span class="line">chroot <span class="string">/mnt</span></span><br><span class="line"></span><br><span class="line">dracut -f -N <span class="params">--kver</span> &lt;kernel-version&gt;  initramfs-&lt;kernel-version&gt;<span class="string">.img</span> </span><br></pre></td></tr></table></figure></li>
-</ul>
-<h2 id="嵌入式中的使用"><a href="#嵌入式中的使用" class="headerlink" title="嵌入式中的使用"></a>嵌入式中的使用</h2><p>这部分工作我具体没参与过，当前我能想到的场景就是裁剪initramfs，减少initramfs的大小。主要应对嵌入式的硬件情况。（当然很多嵌入式可以直接 使用busybox）</p>
-<h2 id="持续更新"><a href="#持续更新" class="headerlink" title="持续更新"></a>持续更新</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/08/08/dracut%E4%BD%BF%E7%94%A8/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
