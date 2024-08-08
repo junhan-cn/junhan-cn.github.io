@@ -13,6 +13,7 @@ categories: 操作系统
 # dracut介绍
 dracut 是基于事件的驱动的initramfs的工具。dracut通过从一个已经安装的系统中复制相应的文件从而创建一个initramfs。从实现上来说dracut 主要是通过一堆脚本定义各个事件。最后通过dracut去调用相应的脚本，复制各个组件，组成initramfs。脚本一般定义在/usr/lib/dracut/modules.d/目录下。日常使用的情况下，目前来看不需要动系统自带的脚本。
 
+<!--more-->
 # 使用场景
 ## 服务器中的使用
 - 添加指定驱动到initramfs中 dracut提供了 --add-drivers --force-drivers --omit-drivers 相关的命令去指定是否将相关驱动做到initramfs中。也可以定义相关配置文件，去持久化
@@ -38,4 +39,4 @@ dracut -f -N --kver <kernel-version>  initramfs-<kernel-version>.img
 ## 嵌入式中的使用
 这部分工作我具体没参与过，当前我能想到的场景就是裁剪initramfs，减少initramfs的大小。主要应对嵌入式的硬件情况。（当然很多嵌入式可以直接 使用busybox）
 
-## 持续更新
+# 持续更新
