@@ -107,5 +107,5 @@ theme: next
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: 'git'
-  repo: https://github.com/junhan-cn/junhan-cn.github.io.git
+  repo: git@github.com:junhan-cn/junhan-cn.github.io.git
   branch: main
